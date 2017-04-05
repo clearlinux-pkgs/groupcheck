@@ -4,14 +4,22 @@
 #
 Name     : groupcheck
 Version  : 9504243495745808682135899
-Release  : 1
+Release  : 2
 URL      : https://github.com/ostroproject/groupcheck/archive/95e04ae24d3e495b7458a08d6fcb8c2a1358e99e.tar.gz
 Source0  : https://github.com/ostroproject/groupcheck/archive/95e04ae24d3e495b7458a08d6fcb8c2a1358e99e.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: groupcheck-bin
+BuildRequires : automake
+BuildRequires : automake-dev
+BuildRequires : gettext-bin
+BuildRequires : libtool
+BuildRequires : libtool-dev
+BuildRequires : m4
+BuildRequires : pkg-config-dev
 BuildRequires : pkgconfig(libsystemd)
+Patch1: build.patch
 
 %description
 
@@ -26,11 +34,11 @@ bin components for the groupcheck package.
 
 %prep
 %setup -q -n groupcheck-95e04ae24d3e495b7458a08d6fcb8c2a1358e99e
+%patch1 -p1
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1491403445
-unset LD_AS_NEEDED
+export SOURCE_DATE_EPOCH=1491404117
 %reconfigure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -42,7 +50,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1491403445
+export SOURCE_DATE_EPOCH=1491404117
 rm -rf %{buildroot}
 %make_install
 
