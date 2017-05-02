@@ -4,7 +4,7 @@
 #
 Name     : groupcheck
 Version  : 9504243495745808682135899
-Release  : 2
+Release  : 3
 URL      : https://github.com/ostroproject/groupcheck/archive/95e04ae24d3e495b7458a08d6fcb8c2a1358e99e.tar.gz
 Source0  : https://github.com/ostroproject/groupcheck/archive/95e04ae24d3e495b7458a08d6fcb8c2a1358e99e.tar.gz
 Summary  : No detailed summary available
